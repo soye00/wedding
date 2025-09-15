@@ -1,0 +1,422 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'GowoonDodum';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunDodum-Regular.woff') format('woff');
+    font-weight: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'InkLiquid';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/InkLipquid.woff') format('woff');
+    font-weight: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'GyeonggiMillenniumTitle';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2410-3@1.0/Title_Light.woff') format('woff');
+    font-weight: normal;
+    font-display: swap;
+}
+
+body {
+    font-family: GowoonDodum, sans-serif;
+    min-height: 100vh;
+    background-color: #f3f4f6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.container {
+    width: 100%;
+    max-width: 414px;
+    min-height: 100vh;
+    background: #ffffff;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.header {
+    background-color: #fff;
+    color: #151313;
+    text-align: center;
+    padding: 2rem;
+}
+
+.header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    font-family: 'InkLiquid', sans-serif;
+}
+
+.header h2 {
+    font-weight: normal;
+    padding: 0.2rem;
+}
+
+.header p {
+    font-family: 'InkLiquid', sans-serif;
+    font-size: 1.5rem;
+}
+
+.header h3 {
+    margin-top: 0.8rem;
+    font-weight: lighter;
+    font-size: 1rem;
+}
+
+.header img {
+    width: 20rem;
+}
+
+.line {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+}
+.line img {
+    width: 3rem;
+}
+
+.section {
+    background-color: white;
+    padding: 0 1.5rem 1.5rem;
+    margin: 0 0 2rem;
+}
+
+.section h2 {
+    font-size: 1.5rem;
+    font-weight: lighter;
+    text-align: center;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    font-family: 'GyeonggiMillenniumTitle', sans-serif;
+}
+
+.intro-container {
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.intro-item {
+    margin-top: 1.5rem;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.intro-item img {
+    width: 8rem;
+    height: 8rem;
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+}
+
+.card-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.card-group {
+    border: 1px solid #e0e0e0;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: #fafafa;
+}
+
+.contact-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contact-name {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #151313;
+}
+
+.contact-button {
+    padding: 0.5rem;
+    background-color: #c8d2d3;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0.5rem;
+    transition: background-color 0.2s;
+}
+
+.contact-button:hover {
+    background-color: #918d8f;
+}
+
+.contact-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: white;
+}
+
+.con-account-details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.2rem 0;
+    gap: 1rem;
+}
+
+.light-separator {
+    height: 1px;
+    margin: 0.5rem 0;
+    background-color: #ccc;
+}
+
+.schedule-block {
+    text-align: center;
+    margin: 2rem;
+}
+
+.schedule-text {
+    line-height: 1.6;
+}
+
+.map-lock-button {
+    padding: 8px;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    min-width: 32px;
+    min-height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.map-lock-button:hover {
+    background-color: #e0e0e0;
+}
+
+.map-lock-button:focus {
+    outline: none;
+}
+
+.lock-icon {
+    width: 20px;
+    height: 20px;
+    color: #333333;
+}
+
+.map-lock-button:not(.unlocked) .lock-icon {
+    color: #666666;
+}
+
+.map-lock-button.unlocked .lock-icon {
+    color: #007bff;
+}
+
+/* 계좌정보 */
+.account-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.account-details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin: 0.8rem;
+    animation: slideIn 0.3s ease-out;
+}
+
+.account-details-text {
+    text-align: center;
+}
+
+.copy-button {
+    padding: 0.5rem 1rem;
+    background-color: #c8d2d3;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.copy-button:hover {
+    background-color: #918d8f;
+}
+
+.separator {
+    height: 2px;
+    margin: 0.5rem 0;
+    background-color: #afafaf;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 갤러리 */
+.gallery-container {
+    overflow: hidden;
+    position: relative;
+}
+
+.main-image-wrapper {
+    height: 60%;
+    width: 95%;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.main-swiper {
+    height: 100%;
+    width: 100%;
+}
+
+.main-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.thumbs-wrapper {
+    height: 40%;
+    width: 100%;
+    padding: 4px;
+    margin: 1rem 0 30px 0;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.thumbs-swiper {
+    height: 100%;
+}
+
+.thumb-slide {
+    height: 100%;
+    aspect-ratio: 1;
+    cursor: pointer;
+    position: relative;
+    border-radius: 4px;
+    overflow: hidden;
+    transition: opacity 0.2s ease;
+    margin: 0 2px;
+}
+
+.thumb-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.thumb-slide.active::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 4px;
+}
+
+.custom-pagination {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.swiper-pagination-bullet {
+    background: #ccc;
+    opacity: 0.5;
+    width: 8px;
+    height: 8px;
+    margin: 0 4px;
+}
+
+.swiper-pagination-bullet-active {
+    background: #007aff;
+    opacity: 1;
+}
+
+/* 갤러리 모달 */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    cursor: pointer;
+}
+
+.modal-content {
+    position: relative;
+    max-width: 90vw;
+    max-height: 90vh;
+    width: auto;
+    height: auto;
+}
+
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1001;
+    visibility: visible;
+}
+
+.modal-swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.modal-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
