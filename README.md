@@ -1,1 +1,1 @@
-# wedding
+# wedding_invitation_project
