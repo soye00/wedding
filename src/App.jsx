@@ -9,6 +9,7 @@ import './index.css';
 
 
 function App() {
+
   return (
       <div>
         <main className="container">
@@ -19,7 +20,7 @@ function App() {
                 className="header"
             >
                 <h1>05.27</h1>
-                <img src="/main.jpg" alt=""/>
+                <img src="/main.webp" alt="Main image" loading="eager" />
                 <h2>홍길동</h2>
                 <p>and</p>
                 <h2>홍길순</h2>

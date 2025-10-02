@@ -24,12 +24,12 @@ const Introduction = () => {
 
                 <div className="intro-item">
                     <div>
-                        <img src="/bi.jpg" alt="신랑" />
+                        <img src="/bi.webp" alt="신랑" />
                         <p>현빈 손예진 의 장남</p>
                         <p>신랑 : <b>홍길동</b></p>
                     </div>
                     <div>
-                        <img src="/bu.jpg" alt="신부" />
+                        <img src="/bu.webp" alt="신부" />
                         <p>원빈 이나영의 차녀</p>
                         <p>신부 : <b>홍길순</b></p>
                     </div>

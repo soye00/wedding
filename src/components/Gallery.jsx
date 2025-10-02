@@ -6,17 +6,19 @@ import 'swiper/css/pagination';
 import 'swiper/css/thumbs';
 import { motion } from 'framer-motion';
 
-const Gallery = ({ images = [
-    { src: "/w1.jpg", alt: "사진1" },
-    { src: "/w2.jpg", alt: "사진2" },
-    { src: "/w3.jpg", alt: "사진3" },
-    { src: "/w4.jpg", alt: "사진4" },
-    { src: "/w5.jpg", alt: "사진5" },
-    { src: "/w6.jpg", alt: "사진6" },
-    { src: "/w7.jpg", alt: "사진7" },
-    { src: "/w8.jpg", alt: "사진8" },
-    { src: "/w9.jpg", alt: "사진9" },
-] }) => {
+const Gallery = ({
+                     images = [
+                         { src: '/w1.webp', alt: '사진1' },
+                         { src: '/w2.webp', alt: '사진2' },
+                         { src: '/w3.webp', alt: '사진3' },
+                         { src: '/w4.webp', alt: '사진4' },
+                         { src: '/w5.webp', alt: '사진5' },
+                         { src: '/w6.webp', alt: '사진6' },
+                         { src: '/w7.webp', alt: '사진7' },
+                         { src: '/w8.webp', alt: '사진8' },
+                         { src: '/w9.webp', alt: '사진9' },
+                     ],
+                 }) => {
     const [mainSwiper, setMainSwiper] = useState(null);
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
     const [activeThumbIndex, setActiveThumbIndex] = useState(0);
@@ -26,7 +28,6 @@ const Gallery = ({ images = [
 
     // 썸네일 페이지당 이미지 수
     const THUMBS_PER_PAGE = 6;
-    const totalPages = Math.ceil(images.length / THUMBS_PER_PAGE);
 
     const handleThumbClick = (index) => {
         if (mainSwiper) {
@@ -86,7 +87,7 @@ const Gallery = ({ images = [
         >
             <h2>갤러리</h2>
             <div className="gallery-container">
-
+                {/* 메인 Swiper */}
                 <div className="main-image-wrapper">
                     <Swiper
                         modules={[Thumbs]}
@@ -96,16 +97,26 @@ const Gallery = ({ images = [
                         onSwiper={setMainSwiper}
                         className="main-swiper"
                         onClick={(swiper) => openModal(swiper.realIndex)}
+                        lazyPreloadPrevNext={4}
                     >
                         {images.map((image, index) => (
                             <SwiperSlide key={index}>
-                                <img src={image.src} alt={image.alt} className="main-image" />
+                                <img
+                                    data-src={image.src}
+                                    src={index === 0 ? image.src : image.src}
+                                    alt={image.alt}
+                                    className="main-image swiper-lazy"
+                                    loading={index === 0 ? "eager" : "lazy"} // 첫 슬라이드는 lazy제외
+                                    width="800"
+                                    height="600"
+                                />
+                                <div className="swiper-lazy-preloader"></div>
                             </SwiperSlide>
                         ))}
                     </Swiper>
                 </div>
 
-                {/* 썸네일 */}
+                {/* 썸네일 Swiper */}
                 <div className="thumbs-wrapper">
                     <Swiper
                         modules={[Pagination]}
@@ -121,6 +132,7 @@ const Gallery = ({ images = [
                         onSwiper={setThumbsSwiper}
                         onSlideChange={handleThumbsChange}
                         className="thumbs-swiper"
+                        lazyPreloadPrevNext={6}
                         breakpoints={{
                             768: {
                                 slidesPerView: THUMBS_PER_PAGE,
@@ -134,7 +146,16 @@ const Gallery = ({ images = [
                                     className={`thumb-slide ${activeThumbIndex === index ? 'active' : ''}`}
                                     onClick={() => handleThumbClick(index)}
                                 >
-                                    <img src={image.src} alt={image.alt} className="thumb-image" />
+                                    <img
+                                        data-src={image.src}
+                                        src={index < THUMBS_PER_PAGE ? image.src : image.src}
+                                        alt={image.alt}
+                                        className="thumb-image swiper-lazy"
+                                        loading={index < THUMBS_PER_PAGE ? "eager" : "lazy"}
+                                        width="100"
+                                        height="100"
+                                    />
+                                    <div className="swiper-lazy-preloader"></div>
                                 </div>
                             </SwiperSlide>
                         ))}
@@ -143,7 +164,7 @@ const Gallery = ({ images = [
 
                 <div className="custom-pagination"></div>
 
-                {/* 모달 */}
+                {/* 모달 Swiper */}
                 {isModalOpen && (
                     <div className="modal-overlay" onClick={closeModal}>
                         <div className="modal-content" onClick={handleModalContentClick}>
@@ -157,10 +178,20 @@ const Gallery = ({ images = [
                                 className="modal-swiper"
                                 initialSlide={modalActiveIndex}
                                 onSlideChange={handleModalSlideChange}
+                                lazyPreloadPrevNext={2}
                             >
                                 {images.map((image, index) => (
                                     <SwiperSlide key={index}>
-                                        <img src={image.src} alt={image.alt} className="modal-image" />
+                                        <img
+                                            data-src={image.src}
+                                            src={image.src}
+                                            alt={image.alt}
+                                            className="modal-image swiper-lazy"
+                                            loading="lazy"
+                                            width="1200"
+                                            height="800"
+                                        />
+                                        <div className="swiper-lazy-preloader"></div>
                                     </SwiperSlide>
                                 ))}
                             </Swiper>
